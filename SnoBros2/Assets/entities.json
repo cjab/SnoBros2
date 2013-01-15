@@ -1,5 +1,169 @@
 [
   {
+    "Type": "Red",
+    "Components": {
+      "Transform": {
+        "Type": "Transform",
+        "Position": {
+          "X": 0,
+          "Y": 0
+        },
+        "Scale": {
+          "X": 2,
+          "Y": 2
+        }
+      },
+      "Physics": {
+        "Type": "Physics"
+      },
+      "Collision": {
+        "Type": "Collision",
+        "Radius": 32
+      },
+      "UnitCollider": {
+        "Type":   "UnitCollider"
+      },
+      "Movement": {
+        "Type": "Movement",
+        "Speed": 4
+      },
+      "Selectable": {
+        "Type": "Selectable"
+      },
+      "SceneGraph": {
+        "Type": "SceneGraph",
+        "Layer": 1,
+        "Nodes": {
+          "Name": "Red",
+          "Children": {}
+        }
+      }
+    }
+  },
+  {
+    "Type": "Yellow",
+    "Components": {
+      "Transform": {
+        "Type": "Transform",
+        "Position": {
+          "X": 0,
+          "Y": 0
+        },
+        "Scale": {
+          "X": 2,
+          "Y": 2
+        }
+      },
+      "Physics": {
+        "Type": "Physics"
+      },
+      "Collision": {
+        "Type": "Collision",
+        "Radius": 32
+      },
+      "UnitCollider": {
+        "Type":   "UnitCollider"
+      },
+      "Movement": {
+        "Type": "Movement",
+        "Speed": 4
+      },
+      "Selectable": {
+        "Type": "Selectable"
+      },
+      "SceneGraph": {
+        "Type": "SceneGraph",
+        "Layer": 1,
+        "Nodes": {
+          "Name": "Yellow",
+          "Children": {}
+        }
+      }
+    }
+  },
+  {
+    "Type": "Blue",
+    "Components": {
+      "Transform": {
+        "Type": "Transform",
+        "Position": {
+          "X": 0,
+          "Y": 0
+        },
+        "Scale": {
+          "X": 2,
+          "Y": 2
+        }
+      },
+      "Physics": {
+        "Type": "Physics"
+      },
+      "Collision": {
+        "Type": "Collision",
+        "Radius": 32
+      },
+      "UnitCollider": {
+        "Type":   "UnitCollider"
+      },
+      "Movement": {
+        "Type": "Movement",
+        "Speed": 4
+      },
+      "Selectable": {
+        "Type": "Selectable"
+      },
+      "SceneGraph": {
+        "Type": "SceneGraph",
+        "Layer": 1,
+        "Nodes": {
+          "Name": "Blue",
+          "Children": {}
+        }
+      }
+    }
+  },
+  {
+    "Type": "Green",
+    "Components": {
+      "Transform": {
+        "Type": "Transform",
+        "Position": {
+          "X": 0,
+          "Y": 0
+        },
+        "Scale": {
+          "X": 2,
+          "Y": 2
+        }
+      },
+      "Physics": {
+        "Type": "Physics"
+      },
+      "Collision": {
+        "Type": "Collision",
+        "Radius": 32
+      },
+      "UnitCollider": {
+        "Type":   "UnitCollider"
+      },
+      "Selectable": {
+        "Type": "Selectable"
+      },
+      "Movement": {
+        "Type": "Movement",
+        "Speed": 4
+      },
+      "SceneGraph": {
+        "Type": "SceneGraph",
+        "Layer": 1,
+        "Nodes": {
+          "Name": "Green",
+          "Children": {}
+        }
+      }
+    }
+  },
+  {
     "Type": "Map",
     "Components": {
       "Transform": {

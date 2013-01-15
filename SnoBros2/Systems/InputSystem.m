@@ -30,7 +30,9 @@
     entityManager_  = entityManager;
     UIManager_      = UIManager;
     camera_         = camera;
+    view_           = view;
 
+    /*
     oneFingerTap_ = [[UITapGestureRecognizer alloc]
                      initWithTarget:self
                              action:@selector(addOneFingerTapEvent:)];
@@ -49,14 +51,99 @@
                              action:@selector(addButtonTapEvent:)];
     buttonTap_.numberOfTapsRequired = 1;
     buttonTap_.numberOfTouchesRequired = 1;
+     */
+
+    /*
     
     boxSelector_ = [[UIPanGestureRecognizer alloc]
                     initWithTarget:self
                             action:@selector(addBoxSelectorEvent:)];
     boxSelector_.minimumNumberOfTouches = 1;
-    boxSelector_.maximumNumberOfTouches = 1;
+    boxSelector_.maximumNumberOfTouches = 2;
+    boxSelector_.delegate = self;
+
+    dragRecognizer_ = [[UIPanGestureRecognizer alloc]
+                    initWithTarget:self
+                            action:@selector(addBoxSelectorEvent:)];
+    dragRecognizer_.minimumNumberOfTouches = 1;
+    dragRecognizer_.maximumNumberOfTouches = 2;
+    dragRecognizer_.delegate = self;
+     */
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(touchesBegan:)
+                                                 name:@"touchesBegan"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(touchesMoved:)
+                                                 name:@"touchesMoved"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(touchesEnded:)
+                                                 name:@"touchesEnded"
+                                               object:nil];
   }
   return self;
+}
+
+
+
+- (void) touchesBegan:(NSNotification *)notification {
+  NSSet *touches = [notification userInfo][@"touches"];
+  UIEvent *event = [notification userInfo][@"event"];
+
+  for (UITouch *touch in touches) {
+    CGPoint p      = [touch locationInView:view_];
+    GLKVector2 pos = GLKVector2Make(p.x, p.y);
+    Entity *entity = [entityManager_ findEntityDisplayedAtPosition:pos];
+    Selectable *selectable = [entity getComponentByString:@"Selectable"];
+    selectable.selected = YES;
+  }
+}
+
+
+
+- (void) touchesMoved:(NSNotification *)notification {
+  NSSet *touches = [notification userInfo][@"touches"];
+  UIEvent *event = [notification userInfo][@"event"];
+
+  for (UITouch *touch in touches) {
+    CGPoint p              = [touch locationInView:view_];
+    GLKVector2 pos         = GLKVector2Make(p.x, p.y);
+    Entity *entity         = [entityManager_ findEntityDisplayedAtPosition:pos];
+    Transform *transform   = [entity getComponentByString:@"Transform"];
+    Selectable *selectable = [entity getComponentByString:@"Selectable"];
+    if (selectable.selected) {
+      transform.position = pos;
+    }
+  }
+}
+
+
+
+- (void) touchesEnded:(NSNotification *)notification {
+  NSSet *touches = [notification userInfo][@"touches"];
+  UIEvent *event = [notification userInfo][@"event"];
+
+  for (UITouch *touch in touches) {
+    CGPoint p            = [touch locationInView:view_];
+    GLKVector2 pos       = GLKVector2Make(p.x, p.y);
+    Entity *entity       = [entityManager_ findEntityDisplayedAtPosition:pos];
+    Transform *transform = [entity getComponentByString:@"Transform"];
+    Selectable *selectable = [entity getComponentByString:@"Selectable"];
+    selectable.selected = NO;
+  }
+}
+
+
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+  return YES;
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+  return YES;
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+  return YES;
 }
 
 
@@ -119,7 +206,10 @@
 
 
 - (void)addBoxSelectorEvent:(UIPanGestureRecognizer *)gr {
-  if (gr.state == UIGestureRecognizerStateEnded) {
+  if (gr.state == UIGestureRecognizerStateBegan) {
+    NSLog(@"BEGIN");
+  }
+  else if (gr.state == UIGestureRecognizerStateEnded) {
     CGPoint  e, t;
 
     e = [gr locationInView:gr.view  ];
@@ -149,19 +239,25 @@
 
 
 - (void)activate {
+  /*
   [[UIManager_ viewWithName:@"Root"] addGestureRecognizer:oneFingerTap_];
   [[UIManager_ viewWithName:@"Root"] addGestureRecognizer:twoFingerTap_];
   [[UIManager_ viewWithName:@"button"] addGestureRecognizer:buttonTap_];
   [[UIManager_ viewWithName:@"Root"] addGestureRecognizer:boxSelector_];
+  [[UIManager_ viewWithName:@"Root"] addGestureRecognizer:dragRecognizer_];
+  */
 }
 
 
 
 - (void)deactivate {
+  /*
   [[UIManager_ viewWithName:@"Root"] removeGestureRecognizer:oneFingerTap_];
   [[UIManager_ viewWithName:@"Root"] removeGestureRecognizer:twoFingerTap_];
   [[UIManager_ viewWithName:@"button"] removeGestureRecognizer:buttonTap_];
   [[UIManager_ viewWithName:@"Root"] removeGestureRecognizer:boxSelector_];
+  [[UIManager_ viewWithName:@"Root"] addGestureRecognizer:dragRecognizer_];
+   */
 }
 
 @end

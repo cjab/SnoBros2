@@ -22,7 +22,7 @@
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setFrame:CGRectMake(22, 2, 20, 20)];
-    
+
     [self addUIElement:fpsMeter withName:@"FPSMeter"];
     [self addUIElement:button withName:@"button"];
   }

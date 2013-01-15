@@ -14,7 +14,7 @@
 @class UIManager;
 @class CameraSystem;
 
-@interface InputSystem : NSObject <GameSystem> {
+@interface InputSystem : NSObject <GameSystem, UIGestureRecognizerDelegate> {
   EntityManager             *entityManager_;
   UIManager                 *UIManager_;
   CameraSystem                    *camera_;
@@ -23,6 +23,8 @@
   UITapGestureRecognizer    *twoFingerTap_;
   UITapGestureRecognizer    *buttonTap_;
   UIPanGestureRecognizer    *boxSelector_;
+  UIPanGestureRecognizer    *dragRecognizer_;
+  UIView                    *view_;
 }
 
 

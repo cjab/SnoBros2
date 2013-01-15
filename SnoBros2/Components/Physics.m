@@ -12,6 +12,8 @@
 #import "Collision.h"
 #import "ASFloat.h"
 
+#import "Selectable.h"
+
 @implementation Physics
 
 @synthesize velocity = velocity_;
@@ -63,6 +65,10 @@
 
 - (void)update {
   Transform *transform = [entity_ getComponentByString:@"Transform"];
+  Selectable *selectable = [entity_ getComponentByString:@"Selectable"];
+  if (!selectable.selected && transform.position.y < 300.f) {
+    [transform translate:GLKVector2Make(0.f, 1.f)];
+  }
   [transform translate:velocity_];
 }
 

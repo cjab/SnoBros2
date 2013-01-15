@@ -53,6 +53,7 @@
 		A3839EBA16A5327A0005EC4B /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = A3839EB916A5327A0005EC4B /* green.png */; };
 		A3839EBD16A5328C0005EC4B /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = A3839EBB16A5328C0005EC4B /* red.png */; };
 		A3839EBE16A5328C0005EC4B /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = A3839EBC16A5328C0005EC4B /* yellow.png */; };
+		A3839EC116A5E8C50005EC4B /* MatchingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3839EC016A5E8C50005EC4B /* MatchingSystem.m */; };
 		A3BD0C981642EC8B007AEB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C971642EC8B007AEB08 /* UIKit.framework */; };
 		A3BD0C9A1642EC8B007AEB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C991642EC8B007AEB08 /* Foundation.framework */; };
 		A3BD0C9C1642EC8B007AEB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */; };
@@ -175,6 +176,8 @@
 		A3839EB916A5327A0005EC4B /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		A3839EBB16A5328C0005EC4B /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		A3839EBC16A5328C0005EC4B /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		A3839EBF16A5E8C50005EC4B /* MatchingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchingSystem.h; sourceTree = "<group>"; };
+		A3839EC016A5E8C50005EC4B /* MatchingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchingSystem.m; sourceTree = "<group>"; };
 		A3BD0C971642EC8B007AEB08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3BD0C991642EC8B007AEB08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3BD0C9B1642EC8B007AEB08 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -551,6 +554,8 @@
 				87595C7C167FB915008D4DF0 /* GameLogicSystem.m */,
 				87595C78167FA35D008D4DF0 /* UISystem.h */,
 				87595C79167FA35E008D4DF0 /* UISystem.m */,
+				A3839EBF16A5E8C50005EC4B /* MatchingSystem.h */,
+				A3839EC016A5E8C50005EC4B /* MatchingSystem.m */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -787,6 +792,7 @@
 				87595C7A167FA360008D4DF0 /* UISystem.m in Sources */,
 				87595C7D167FB918008D4DF0 /* GameLogicSystem.m in Sources */,
 				A300B8F216811B1400D150E7 /* MainMenuViewController.m in Sources */,
+				A3839EC116A5E8C50005EC4B /* MatchingSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

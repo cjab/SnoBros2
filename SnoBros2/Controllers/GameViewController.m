@@ -16,6 +16,7 @@
 - (void)viewDidLoad {
   [self setupGL];
   game_         = [[Game alloc] initWithView:self.view];
+  self.view.multipleTouchEnabled = YES;
 }
 
 
@@ -44,6 +45,24 @@
 }
 
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"touchesBegan"
+                                                      object:self
+                                                    userInfo:@{@"touches": touches, @"event": event}];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"touchesMoved"
+                                                      object:self
+                                                    userInfo:@{@"touches": touches, @"event": event}];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+  NSLog(@"ENDED");
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"touchesEnded"
+                                                      object:self
+                                                    userInfo:@{@"touches": touches, @"event": event}];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   return UIInterfaceOrientationIsLandscape(interfaceOrientation);

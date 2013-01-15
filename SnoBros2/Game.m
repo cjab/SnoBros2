@@ -87,13 +87,15 @@
                                              selector:@selector(manageStateChange:)
                                                  name:@"stateChange"
                                                object:nil];
-    
-    GLKVector2    target  = GLKVector2Make(192.f, 416.f);
+
+    /*
+    GLKVector2    target  = GLKVector2Make(0.f, 0.f);
     NSDictionary *panData = @{@"target": [NSValue value:&target
                                            withObjCType:@encode(GLKVector2)]};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"panCameraToTarget"
                                                         object:self
                                                       userInfo:panData];
+     */
   }
   return self;
 }
@@ -185,7 +187,7 @@
   [adjusting addObject:inputSystem_];
   [adjusting addObject:UISystem_];
   [adjusting addObject:gameLogicSystem_];
-  [adjusting addObject:cameraSystem_];
+  //[adjusting addObject:cameraSystem_];
   
   [adjusting addObject:entityManager_];
   
@@ -200,7 +202,7 @@
   [playing addObject:inputSystem_];
   [playing addObject:UISystem_];
   [playing addObject:gameLogicSystem_];
-  [playing addObject:cameraSystem_];
+  //[playing addObject:cameraSystem_];
   
   [playing addObject:enemyBehaviorSystem_];
   [playing addObject:damageSystem_];
