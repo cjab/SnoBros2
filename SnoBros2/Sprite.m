@@ -17,20 +17,31 @@
 - (id)initWithFile:(NSString *)filePath {
   self = [super init];
   if (self) {
+    NSError *error;
+    UIImage *image = [UIImage imageNamed:filePath];
+
+    if (!image) {
+      NSLog(@"Error: Could not find image named %@", filePath);
+    }
+
     texture_  = [GLKTextureLoader
-                 textureWithCGImage:[UIImage imageNamed:filePath].CGImage
+                 textureWithCGImage:image.CGImage
                  options:nil
-                 error:nil];
-    
+                 error:&error];
+
+    if (error) {
+      NSLog(@"Error: File %@ failed to load: %@", filePath, [error userInfo]);
+    }
+
     float halfWidth  = texture_.width  / 2.f;
     float halfHeight = texture_.height / 2.f;
-    
+
     vertices_    = malloc(sizeof(GLKVector2) * 4);
     vertices_[0] = GLKVector2Make(-halfWidth,  halfHeight);
     vertices_[1] = GLKVector2Make(-halfWidth, -halfHeight);
     vertices_[2] = GLKVector2Make( halfWidth, -halfHeight);
     vertices_[3] = GLKVector2Make( halfWidth,  halfHeight);
-    
+
     uvMap_    = malloc(sizeof(GLKVector2) * 4);
     uvMap_[0] = GLKVector2Make(0, 1);
     uvMap_[1] = GLKVector2Make(0, 0);
