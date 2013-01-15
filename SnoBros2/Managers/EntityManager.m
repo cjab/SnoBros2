@@ -176,6 +176,19 @@
 
 
 
+- (NSArray *)findByType:(NSString *)name {
+  NSMutableArray *found = [[NSMutableArray alloc] initWithCapacity:10];
+  [entities_ enumerateKeysAndObjectsUsingBlock:^(id key, Entity *entity, BOOL *stop) {
+    if ([entity.type isEqualToString:name]) {
+      [found addObject:entity];
+    }
+  }];
+
+  return found;
+}
+
+
+
 - (NSArray *)findAllWithinBoundingBox:(BoundingBox *)boundingBox {
   NSMutableArray *found = [[NSMutableArray alloc] init];
 

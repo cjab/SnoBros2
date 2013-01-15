@@ -39,5 +39,6 @@
 - (NSArray *)findAllNear:(BoundingBox *)boundingBox;
 - (NSArray *)findCollisionGroups;
 - (NSArray *)findAllSelected;
+- (NSArray *)findByType:(NSString *)name;
 
 @end
