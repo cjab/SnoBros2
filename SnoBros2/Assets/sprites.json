@@ -33,5 +33,25 @@
     "Name": "Node",
     "Tag": "Node",
     "FileName": "node.png"
+  },
+  {
+    "Name": "Red",
+    "Tag":  "Red",
+    "FileName": "red.png"
+  },
+  {
+    "Name": "Green",
+    "Tag":  "Green",
+    "FileName": "green.png"
+  },
+  {
+    "Name": "Blue",
+    "Tag":  "Blue",
+    "FileName": "blue.png"
+  },
+  {
+    "Name": "Yellow",
+    "Tag":  "Yellow",
+    "FileName": "yellow.png"
   }
 ]
