@@ -27,6 +27,7 @@
 #import "InputSystem.h"
 #import "UISystem.h"
 #import "GameLogicSystem.h"
+#import "MatchingSystem.h"
 
 #import "GameSystem.h"
 #import "Transform.h"
@@ -80,7 +81,9 @@
     UISystem_            = [[UISystem alloc]
                             initWithUIManager:UIManager_];
     gameLogicSystem_     = [[GameLogicSystem alloc] init];
-    
+    matchingSystem_      = [[MatchingSystem alloc]
+                            initWithEntityManager:entityManager_];
+
     [self createStateDictionary];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -187,6 +190,7 @@
   [adjusting addObject:inputSystem_];
   [adjusting addObject:UISystem_];
   [adjusting addObject:gameLogicSystem_];
+  [adjusting addObject:matchingSystem_];
   //[adjusting addObject:cameraSystem_];
   
   [adjusting addObject:entityManager_];
@@ -202,6 +206,7 @@
   [playing addObject:inputSystem_];
   [playing addObject:UISystem_];
   [playing addObject:gameLogicSystem_];
+  [playing addObject:matchingSystem_];
   //[playing addObject:cameraSystem_];
   
   [playing addObject:enemyBehaviorSystem_];

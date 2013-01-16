@@ -33,7 +33,7 @@
 
 - (NSArray *)sortByLayer:(NSArray *)entities;
 - (NSArray *)findByTeamName:(NSString *)name;
-- (NSArray *)findAllWithComponent:(NSString *)component;
+- (NSMutableArray *)findAllWithComponent:(NSString *)component;
 - (Entity  *)findEntityDisplayedAtPosition:(GLKVector2)target;
 - (NSArray *)findAllWithinBoundingBox:(BoundingBox *)boundingBox;
 - (NSArray *)findAllNear:(BoundingBox *)boundingBox;

@@ -154,7 +154,7 @@
 
 
 
-- (NSArray *)findAllWithComponent:(NSString *)component {
+- (NSMutableArray *)findAllWithComponent:(NSString *)component {
   NSMutableArray *found = [[NSMutableArray alloc] initWithArray:entitiesByComponent_[component]];
   return found;
 }

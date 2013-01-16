@@ -10,6 +10,8 @@
 
 @implementation BoundingBox
 
+@synthesize rectangle = rectangle_;
+
 - (id)initWithOrigin:(GLKVector2)origin size:(CGSize)size {
   self = [super init];
   if (self) {
@@ -27,6 +29,17 @@
   GLKVector2 origin = GLKVector2Make(x, y);
   CGSize     size   = CGSizeMake(width, height);
   return [self initWithOrigin:origin size:size];
+}
+
+
+
+- (BoundingBox *)unionWith:(BoundingBox *)other {
+  CGRect rect = CGRectUnion(rectangle_, other.rectangle);
+
+  return [[BoundingBox alloc] initWithX:rect.origin.x + (rect.size.width / 2.f)
+                                      Y:rect.origin.y + (rect.size.height / 2.f)
+                                  width:rect.size.width
+                                 height:rect.size.height];
 }
 
 

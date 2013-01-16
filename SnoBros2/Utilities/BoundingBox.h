@@ -17,11 +17,13 @@
 @property (nonatomic) float y;
 @property (nonatomic) float width;
 @property (nonatomic) float height;
+@property (nonatomic,readonly) CGRect rectangle;
 
 - (id)initWithOrigin:(GLKVector2)origin size:(CGSize)size;
 - (id)initWithX:(float)x Y:(float)y width:(float)size height:(float)height;
 
 - (bool)intersectsWith:(BoundingBox *)other;
 - (bool)containsPoint:(CGPoint)point;
+- (BoundingBox *)unionWith:(BoundingBox *)other;
 
 @end

@@ -25,6 +25,7 @@
 @class InputSystem;
 @class UISystem;
 @class GameLogicSystem;
+@class MatchingSystem;
 
 const static float TIMESTEP_INTERVAL = 1.f / 60.f;
 const static int   MAX_STEPS         = 5;
@@ -47,6 +48,7 @@ const static int   MAX_STEPS         = 5;
   GameStateSystem       *gameStateSystem_;
   UISystem              *UISystem_;
   GameLogicSystem       *gameLogicSystem_;
+  MatchingSystem        *matchingSystem_;
   
   UIView                *view_;
   
